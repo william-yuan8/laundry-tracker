@@ -1,8 +1,7 @@
-# React + Vite
+# Laundry Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Work in progress
 
-Currently, two official plugins are available:
+Want to save people's time in dragging their laundry all the way to the laundry room just for all the machines to be full, and then they have to go all the way back to their room and wait, possibly for the process to happen again.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The goal of this app is for residents to contribute to the app when they do laundry, because ironically, people can only USE the app, if people use the app. 
