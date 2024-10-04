@@ -7,14 +7,24 @@ export default function Dorm(props) {
     let [washerTimeLeft, setWasherTimeLeft] = useState(Array(props.washers).fill(0));
     let [dryerTimeLeft, setDryerTimeLeft] = useState(Array(props.dryers).fill(0));
     let intervalRef = useRef(null);
-    let availW = 0;
+
+    let availW = 0, minWaitW = 60*60;
     for (const i of washerTimeLeft) {
         if (i <= 0) availW++;
+        else minWaitW = Math.min(minWaitW, i);
     }
 
-    let availD = 0;
+    let availD = 0, minWaitD = 60*60;
     for (const i of dryerTimeLeft) {
         if (i <= 0) availD++;
+        else minWaitD = Math.min(i, minWaitD);
+    }
+
+    function convert(timeLeft) {
+        let secs = Math.ceil(timeLeft%60);
+        let mins = Math.floor(timeLeft/60);
+
+        return `${mins}m ${secs}s`;
     }
 
 
@@ -61,7 +71,8 @@ export default function Dorm(props) {
 
     return (
         <>
-            <h2>{props.dorm} | Washing machines: {props.washers} ({availW} available) | Dryers: {props.dryers} ({availD} available)</h2>
+            <h2>{props.dorm} | Washing machines: {props.washers} ({availW > 0 ? `${availW} available` : `Next free in: ${convert(minWaitW)}`}) 
+                             | Dryers: {props.dryers} ({availD > 0 ? `${availD} available` : `Next free in: ${convert(minWaitD)}`})</h2>
             <div>
                 {washerList}
             </div>
