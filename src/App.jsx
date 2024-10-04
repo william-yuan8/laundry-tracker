@@ -1,6 +1,5 @@
 import './App.css'
 import Dorm from './components/Dorm'
-import Timer from './components/Timer'
 
 function App() {
 
